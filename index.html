@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copy Code</title>
+</head>
+<body>
+
+<button id="copyBtn">فودافون كاش</button>
+<p id="message"></p>
+
+<script>
+const phone = "*9*7*01080350089*";
+
+document.getElementById("copyBtn").addEventListener("click", async () => {
+    try {
+        await navigator.clipboard.writeText(phone);
+        document.getElementById("message").innerText = "تم النسخ بنجاح";
+    } catch (error) {
+        document.getElementById("message").innerText = "تعذر النسخ، يرجى المحاولة مرة أخرى";
+    }
+});
+</script>
+
+</body>
+</html>
