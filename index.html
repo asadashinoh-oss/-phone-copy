@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Copy Code</title>
+<title>Vodafone Cash</title>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
@@ -17,22 +22,33 @@ body {
 }
 
 .container {
-    width: 85%;
-    max-width: 400px;
+    width: 88%;
+    max-width: 420px;
     text-align: center;
 }
 
 button {
     width: 100%;
+    min-height: 85px;
     padding: 22px;
     border: none;
-    border-radius: 18px;
-    background: linear-gradient(135deg, #E60000, #B00020, #F44336);
-    color: white;
-    font-size: 23px;
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #ff3333 0%,
+        #e60000 45%,
+        #a90000 100%
+    );
+
+    color: #ffffff;
+    font-size: 25px;
     font-weight: bold;
+
+    box-shadow: 0 8px 22px rgba(230, 0, 0, 0.25);
+
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(11,31,58,0.25);
+    transition: 0.2s ease;
 }
 
 button:active {
@@ -41,8 +57,9 @@ button:active {
 
 #message {
     color: #16834a;
-    font-size: 17px;
-    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 22px;
 }
 </style>
 </head>
@@ -50,20 +67,33 @@ button:active {
 <body>
 
 <div class="container">
-    <button id="copyBtn">فودافون كاش</button>
+
+    <button id="copyBtn">
+        فودافون كاش
+    </button>
+
     <p id="message"></p>
+
 </div>
 
 <script>
 const phone = "*9*7*01080350089*";
 
 document.getElementById("copyBtn").addEventListener("click", async () => {
+
     try {
         await navigator.clipboard.writeText(phone);
-        document.getElementById("message").innerText = "تم النسخ بنجاح ✓";
+
+        document.getElementById("message").innerText =
+            "تم النسخ بنجاح ✓";
+
     } catch (error) {
-        document.getElementById("message").innerText = "تعذر النسخ، يرجى المحاولة مرة أخرى";
+
+        document.getElementById("message").innerText =
+            "تعذر النسخ، يرجى المحاولة مرة أخرى";
+
     }
+
 });
 </script>
 
