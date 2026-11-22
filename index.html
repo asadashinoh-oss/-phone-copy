@@ -1,1 +1,103 @@
-html <!DOCTYPE html> <html lang="ar" dir="rtl">  <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>Vodafone Cash</title>  <style> * {     box-sizing: border-box; }  body {     margin: 0;     min-height: 100vh;     display: flex;     justify-content: center;     align-items: center;     background: #f4f6fa;     font-family: Arial, sans-serif; }  .container {     width: 88%;     max-width: 420px;     text-align: center; }  button {     width: 100%;     min-height: 85px;     padding: 22px;     border: none;     border-radius: 20px;     background: linear-gradient(135deg, #ff3333 0%, #e60000 45%, #a90000 100%);     color: #ffffff;     font-size: 25px;     font-weight: bold;     box-shadow: 0 8px 22px rgba(230, 0, 0, 0.25);     cursor: pointer; }  button:active {     transform: scale(0.97); }  #message {     color: #16834a;     font-size: 18px;     font-weight: bold;     margin-top: 22px; } </style> </head>  <body>  <div class="container">     <button id="copyBtn">فودافون كاش</button>     <p id="message"></p> </div>  <script> const phone = "*9*7*01080350089*";  document.getElementById("copyBtn").addEventListener("click", async () => {      try {         await navigator.clipboard.writeText(phone);          document.getElementById("message").innerText =             "تم نسخ الكود، جاري فتح لوحة الاتصال";          setTimeout(() => {             window.location.href = "tel:" + encodeURIComponent(phone);         }, 500);      } catch (error) {          document.getElementById("message").innerText =             "تعذر النسخ، حاول مرة أخرى";      }  }); </script>  </body> </html> 
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vodafone Cash</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f6fa;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 88%;
+    max-width: 420px;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    min-height: 85px;
+    padding: 22px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ff3333, #e60000, #a90000);
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    box-shadow: 0 8px 22px rgba(230, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+#message {
+    display: none;
+    margin-top: 22px;
+    padding: 18px;
+    background: white;
+    border-radius: 16px;
+    color: #0B1F3A;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+#code {
+    direction: ltr;
+    display: block;
+    font-weight: bold;
+    color: #e60000;
+    margin: 10px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <button id="copyBtn">فودافون كاش</button>
+
+    <div id="message" aria-live="polite">
+        <strong>تم نسخ الكود بنجاح ✓</strong>
+        <span id="code">9701080350089</span>
+        افتح لوحة الاتصال والصق الكود.
+    </div>
+
+</div>
+
+<script>
+const phone = "9701080350089";
+
+document.getElementById("copyBtn").addEventListener("click", async () => {
+    try {
+        await navigator.clipboard.writeText(phone);
+
+        document.getElementById("message").style.display = "block";
+
+    } catch (error) {
+        document.getElementById("message").style.display = "block";
+        document.getElementById("message").innerHTML =
+            "تعذر النسخ تلقائيًا. انسخ الكود يدويًا:<span id='code'>9701080350089</span>";
+    }
+});
+</script>
+
+</body>
+</html>
+``
