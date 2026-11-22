@@ -1,14 +1,58 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Copy Code</title>
+
+<style>
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f6fa;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 85%;
+    max-width: 400px;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 22px;
+    border: none;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #0B1F3A, #24558A);
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(11,31,58,0.25);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+#message {
+    color: #16834a;
+    font-size: 17px;
+    margin-top: 20px;
+}
+</style>
 </head>
+
 <body>
 
-<button id="copyBtn">فودافون كاش</button>
-<p id="message"></p>
+<div class="container">
+    <button id="copyBtn">فودافون كاش</button>
+    <p id="message"></p>
+</div>
 
 <script>
 const phone = "*9*7*01080350089*";
@@ -16,7 +60,7 @@ const phone = "*9*7*01080350089*";
 document.getElementById("copyBtn").addEventListener("click", async () => {
     try {
         await navigator.clipboard.writeText(phone);
-        document.getElementById("message").innerText = "تم النسخ بنجاح";
+        document.getElementById("message").innerText = "تم النسخ بنجاح ✓";
     } catch (error) {
         document.getElementById("message").innerText = "تعذر النسخ، يرجى المحاولة مرة أخرى";
     }
